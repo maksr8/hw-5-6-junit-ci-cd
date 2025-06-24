@@ -1,5 +1,7 @@
-package org.example;
+package org.example.parameterized;
 
+import org.example.TemperatureConverter;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -18,7 +20,7 @@ public class TemperatureConverterParameterizedTest {
             "-40.0, -40.0"
     })
     void givenCelsius_whenConvertToFahrenheit_thenReturnsExpected(double celsius, double expectedF) {
-        assertEquals(expectedF, TemperatureConverter.cToF(celsius), 1e-6);
+        Assertions.assertEquals(expectedF, TemperatureConverter.cToF(celsius), 1e-6);
     }
 
     @Tag("celsius")

@@ -1,5 +1,6 @@
-package org.example;
+package org.example.simple;
 
+import org.example.TemperatureConverter;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 

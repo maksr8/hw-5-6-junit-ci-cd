@@ -12,6 +12,64 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <junit.jupiter.version>5.13.2</junit.jupiter.version>
+        <surefire.version>3.5.3</surefire.version>
+        <checkstyle.version>3.6.0</checkstyle.version>
+        <suite.version>1.13.1</suite.version>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite</artifactId>
+            <version>${suite.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${surefire.version}</version>
+                    <configuration>
+<!--                        <includes>-->
+<!--                            <include>**/*Suite.java</include>-->
+<!--                        </includes>-->
+                        <groups>kelvin</groups>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <version>${checkstyle.version}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.puppycrawl.tools</groupId>
+                            <artifactId>checkstyle</artifactId>
+                            <version>10.25.1</version>
+                        </dependency>
+                    </dependencies>
+                    <executions>
+                        <execution>
+                            <phase>validate</phase>
+                            <goals><goal>check</goal></goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <configLocation>${project.basedir}/src/main/resources/google_checks.xml</configLocation>
+                        <failOnViolation>true</failOnViolation>
+                        <consoleOutput>true</consoleOutput>
+                    </configuration>
+                </plugin>
+            </plugins>
+    </build>
 
 </project>

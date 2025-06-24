@@ -1,4 +1,4 @@
-package org.example;
+package org.example.suits;
 
 import org.junit.platform.suite.api.IncludeTags;
 import org.junit.platform.suite.api.SelectPackages;
