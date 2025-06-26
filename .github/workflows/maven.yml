@@ -33,7 +33,7 @@ jobs:
         cache: maven
         server-id: github
         server-username: ${{ github.actor }}
-        server-password: ${{ secrets.GITHUB_TOKEN }}
+        server-password: ${{ secrets.MAVEN_PUBLISH_TOKEN }}
     - name: Validate code style with Checkstyle
       run: mvn validate
     - name: Run unit tests
