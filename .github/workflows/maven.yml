@@ -38,3 +38,7 @@ jobs:
       with:
         name: temperature-converter-jar
         path: target/*.jar
+    - name: Publish to GitHub Packages
+      run: mvn deploy -DskipTests
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
