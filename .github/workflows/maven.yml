@@ -44,5 +44,5 @@ jobs:
         path: target/*.jar
     - name: Publish to GitHub Packages
       env:
-        GITHUB_TOKEN: ${{ secrets.MAVEN_PUBLISH_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: mvn deploy -DskipTests --settings .github/mvn-settings.xml
