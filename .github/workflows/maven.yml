@@ -31,6 +31,9 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
         cache: maven
+        server-id: github
+        server-username: ${{ github.actor }}
+        server-password: ${{ secrets.GITHUB_TOKEN }}
     - name: Validate code style with Checkstyle
       run: mvn validate
     - name: Run unit tests
@@ -38,10 +41,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Publish to GitHub Packages
-      env:
-        GH_USER: makrs8
-        GITHUB_TOKEN: ${{ secrets.MAVEN_PUBLISH_TOKEN }}
-      run: mvn deploy -DskipTests --settings .github/mvn-settings.xml
+      run: mvn deploy -DskipTests
     - name: Upload JAR artifact
       uses: actions/upload-artifact@v4
       with:
