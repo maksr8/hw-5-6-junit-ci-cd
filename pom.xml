@@ -6,7 +6,7 @@
 
     <groupId>org.example</groupId>
     <artifactId>hw-5-6-junit-ci-cd</artifactId>
-    <version>1.0</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
 
     <properties>
